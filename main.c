@@ -8,7 +8,12 @@
 // pthread_mutex_destroy, pthread_mutex_lock,
 // pthread_mutex_unlock
 
-int main(int argc, char *argv[])
+void	philo(char *argv[])
+{
+	
+}
+
+int	main(int argc, char *argv[])
 {
 
 }
