@@ -18,55 +18,34 @@
 
 // args: number_of_philosophers, time_to_die, time_to_eat, time_to_sleep, (all in milliseconds)
 
-void	philo(char *argv[])
-{
-	
-}
+// void	eat(t_philo *philo)
+// {
 
-void	create_philos(t_philo *philo)
-{
+// }
 
-}
+// void	think(t_philo *philo)
+// {
 
-void	convertargs(char *argv[], t_args *args)
-{
-	
-}
+// }
 
-void	checkargs(char *argv[])
-{
-	int	i;
-	int	j;
+// void	sleep(t_philo *philo)
+// {
 
-	i = 0;
-	j = -1;
-	while (argv[++i])
-	{
-		while (argv[i][++j])
-		{
-			if (!(argv[i][j] >= '0' && argv[i][j] <= '9'))
-			{
-				write(2, "Must enter only positive numbers as arguments!", 46);
-				exit(1);
-			}
-		}
-		j = -1;
-	}
-}
+// }
 
-void	checkargsreg(int argc)
-{
-	if (argc != 5)
-	{
-		write(STDERR_FILENO, "Not the right number of arguments", 33);
-		exit(1);
-	}
-}
+// void	*philo_act(void *philo)
+// {
+// 	printf("hello from philo\n");
+
+// 	return (0);
+// }
 
 int	main(int argc, char *argv[])
 {
-	checkargsreg(argc);
-	checkargs(argv);
+	t_philo	philo;
 
+	check(argc, argv);
+	convertargs(argv, &philo);
+	create_philos(&philo);
 	return (0);
 }
