@@ -42,10 +42,10 @@
 
 int	main(int argc, char *argv[])
 {
-	t_philo	philo;
+	t_philo	*philo = NULL;
 
 	check(argc, argv);
-	convertargs(argv, &philo);
-	create_philos(&philo);
+	convertargs(argv, philo);
+	//create_philos(&philo);
 	return (0);
 }

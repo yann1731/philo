@@ -3,10 +3,12 @@
 void	convertargs(char *argv[], t_philo *philo)
 {
 	int	i;
+	int	n_philo;
 
 	i = -1;
-	philo->n_philo = ft_atoi(argv[1]);
-	philo->philo = malloc(philo->n_philo * sizeof(pthread_t));
+	n_philo = ft_atoi(argv[1]);
+	philo = malloc(n_philo * sizeof(t_philo));
+	philo->n_philo = n_philo;
 	philo->forks = malloc(philo->n_philo * sizeof(int));
 	philo->t_to_die = ft_atoi(argv[2]);
 	philo->t_to_eat = ft_atoi(argv[3]);
