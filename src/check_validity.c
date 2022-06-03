@@ -1,4 +1,4 @@
-#include "philosopher.h"
+#include "../include/philosopher.h"
 
 void	check_validity(char *argv[])
 {

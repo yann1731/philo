@@ -1,4 +1,4 @@
-#include "philosopher.h"
+#include "../include/philosopher.h"
 
 /*  Allowed functions	*/
 
@@ -7,16 +7,6 @@
 // pthread_detach, pthread_join, pthread_mutex_init,
 // pthread_mutex_destroy, pthread_mutex_lock,
 // pthread_mutex_unlock
-
-/*	Messages to be printed when changing states	*/
-
-// ◦ timestamp_in_ms X has taken a fork
-// ◦ timestamp_in_ms X is eating
-// ◦ timestamp_in_ms X is sleeping
-// ◦ timestamp_in_ms X is thinking
-// ◦ timestamp_in_ms X died
-
-// args: number_of_philosophers, time_to_die, time_to_eat, time_to_sleep, (all in milliseconds)
 
 // void	eat(t_philo *philo)
 // {
@@ -42,10 +32,9 @@
 
 int	main(int argc, char *argv[])
 {
-	t_philo	*philo = NULL;
-
+	t_args args;
 	check(argc, argv);
-	convertargs(argv, philo);
-	//create_philos(&philo);
+	initargs(argv, &args);
+	create_philos(&args);
 	return (0);
 }
