@@ -6,30 +6,27 @@
 // ◦timestamp_in_ms X is thinking
 // ◦timestamp_in_ms X died
 
-void	eat(t_philo *philo)
-{
-	printf("Philo")
-}
+// void	eat(t_philo *philo)
+// {
+// 	printf("Philo");
+// }
 
-void	think(t_philo *philo)
-{
+// void	think(t_philo *philo)
+// {
 
-}
+// }
 
-void	sleep(t_philo *philo)
-{
+// void	sleep(t_philo *philo)
+// {
 
-}
+// }
 
 void	*philo_act(void *arg)
 {
 	t_philo *philo;
 	philo = (t_philo *) arg;
 
-	printf("%d\n", philo->philo_id);
-	printf("%d\n", philo->t_to_die);
-	printf("%d\n", philo->t_to_eat);
-	printf("%d\n", philo->t_to_sleep);
+	printf("seconds: %ld, time in milliseconds: %d, philo %d\n", philo->start_time.tv_sec, philo->start_time.tv_usec, philo->philo_id);
 
 	return ((void *) philo->forks);
 }

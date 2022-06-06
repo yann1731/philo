@@ -32,7 +32,8 @@
 
 int	main(int argc, char *argv[])
 {
-	t_args args;
+	t_args			args;
+
 	check(argc, argv);
 	initargs(argv, &args);
 	create_philos(&args);
