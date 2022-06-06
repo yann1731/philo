@@ -8,28 +8,6 @@
 // pthread_mutex_destroy, pthread_mutex_lock,
 // pthread_mutex_unlock
 
-// void	eat(t_philo *philo)
-// {
-
-// }
-
-// void	think(t_philo *philo)
-// {
-
-// }
-
-// void	sleep(t_philo *philo)
-// {
-
-// }
-
-// void	*philo_act(void *philo)
-// {
-// 	printf("hello from philo\n");
-
-// 	return (0);
-// }
-
 int	main(int argc, char *argv[])
 {
 	t_args			args;

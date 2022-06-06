@@ -37,3 +37,4 @@ void	check(int argc, char *argv[]);
 void	check_validity(char *argv[]);
 void	*philo_act(void *arg);
 void    initphilo(char *argv[], t_args *args, t_philo *philo);
+int		getms(t_philo *philo);

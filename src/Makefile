@@ -1,5 +1,5 @@
 SRCS =		ft_atoi.c main.c check_validity.c check.c checkargsnum.c initargs.c create_philos.c \
-			philo_act.c initphilo.c
+			philo_act.c initphilo.c getms.c
 
 OBJS =		${SRCS:.c=.o}
 
