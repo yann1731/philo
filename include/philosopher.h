@@ -7,6 +7,8 @@
 #include <stdlib.h>
 
 // args: number_of_philosophers, time_to_die, time_to_eat, time_to_sleep, (all in milliseconds)
+typedef struct s_args t_args;
+typedef struct s_philo t_philo;
 
 typedef struct s_philo
 {
@@ -20,12 +22,14 @@ typedef struct s_philo
 	int				n_times_eat;
 	struct timeval	start_time;
 	struct timeval	current_time;
+	t_args			*args;
 }	t_philo;
 
 typedef struct s_args
 {
 	pthread_t	*philo_thread;
 	t_philo		*philo;
+	int			*forks;
 	int			n_philo;
 }	t_args;
 
@@ -36,5 +40,7 @@ void	checkargsnum(int argc);
 void	check(int argc, char *argv[]);
 void	check_validity(char *argv[]);
 void	*philo_act(void *arg);
-void    initphilo(char *argv[], t_args *args, t_philo *philo);
+void    initphilo(char *argv[], t_args *args);
 int		getms(t_philo *philo);
+void	fuckoff(void);
+void	freeall(t_args *args);

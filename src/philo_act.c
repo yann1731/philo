@@ -20,7 +20,7 @@ void	eat(t_philo *philo)
 // 	usleep(philo->t_to_eat )
 // }
 
-void	sleep(t_philo *philo)
+void	f_sleep(t_philo *philo)
 {
 	printf("%d %d is sleeping\n", getms(philo), philo->philo_id);
 	usleep((philo->t_to_sleep * 1000));
@@ -30,6 +30,8 @@ void	*philo_act(void *arg)
 {
 	t_philo *philo;
 	philo = (t_philo *) arg;
+
+	printf("Hello from philo %d\n", philo->philo_id);
 
 
 	return ((void *) philo);

@@ -10,10 +10,16 @@
 
 int	main(int argc, char *argv[])
 {
-	t_args			args;
+	t_args	*args;
+	int		i;
 
+	i = -1;
+	args = malloc(sizeof(t_args));
 	check(argc, argv);
-	initargs(argv, &args);
-	create_philos(&args);
+	initargs(argv, args);
+	create_philos(args);
+	while (++i < args->n_philo)
+		pthread_join(args->philo_thread[i], NULL);
+	freeall(args);
 	return (0);
 }

@@ -1,5 +1,5 @@
 SRCS =		ft_atoi.c main.c check_validity.c check.c checkargsnum.c initargs.c create_philos.c \
-			philo_act.c initphilo.c getms.c
+			philo_act.c initphilo.c getms.c fuckoff.c freeall.c
 
 OBJS =		${SRCS:.c=.o}
 
@@ -24,3 +24,6 @@ clean:
 
 fclean: clean
 			${RM} ${NAME}
+re: fclean all
+
+.PHONY: all clean fclean re
