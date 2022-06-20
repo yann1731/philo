@@ -14,6 +14,7 @@ typedef struct s_philo
 {
 	pthread_mutex_t	pick_r_fork;
 	pthread_mutex_t	pick_l_fork;
+	pthread_mutex_t check_death;
 	int				*forks;
 	int				philo_id;
 	int				t_to_die;
@@ -44,3 +45,4 @@ void    initphilo(char *argv[], t_args *args);
 int		getms(t_philo *philo);
 void	fuckoff(void);
 void	freeall(t_args *args);
+void	init_mutex(t_philo *philo);
