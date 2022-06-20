@@ -24,7 +24,6 @@ void	initphilo(char *argv[], t_args *args)
 		args->philo[i].start_time.tv_sec = seconds;
 		args->philo[i].start_time.tv_usec = usecs;
 		args->philo->args = args;
-		pthread_mutex_init(&args->philo[i].pick_l_fork, NULL);
-		pthread_mutex_init(&args->philo[i].pick_r_fork, NULL);
+		init_mutex(&args->philo[i]);
 	}
 }
