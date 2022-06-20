@@ -20,6 +20,7 @@ int	main(int argc, char *argv[])
 	create_philos(args);
 	while (++i < args->n_philo)
 		pthread_join(args->philo_thread[i], NULL);
+	while (args->is_dead == FALSE)
 	freeall(args);
 	return (0);
 }
