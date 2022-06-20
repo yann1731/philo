@@ -9,16 +9,16 @@
 void	eat(t_philo *philo)
 {
 	printf("%d %d has taken a fork\n", getms(philo), philo->philo_id);
-	printf("%d %d had taken a fork\n", getms(philo), philo->philo_id);
+	printf("%d %d has taken a fork\n", getms(philo), philo->philo_id);
 	printf("%d %d is eating\n", getms(philo), philo->philo_id);
 	usleep((philo->t_to_eat * 1000));
 }
 
-// void	think(t_philo *philo)
-// {
-// 	printf("%d %d is thinking\n", getms(philo), philo->philo_id);
-// 	usleep(philo->t_to_eat )
-// }
+void	think(t_philo *philo)
+{
+	printf("%d %d is thinking\n", getms(philo), philo->philo_id);
+	usleep(philo->t_to_eat );
+}
 
 void	f_sleep(t_philo *philo)
 {
