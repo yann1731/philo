@@ -18,9 +18,11 @@ int	main(int argc, char *argv[])
 	check(argc, argv);
 	initargs(argv, args);
 	create_philos(args);
+	while (args->is_dead == FALSE)
+	{
+	}
 	while (++i < args->n_philo)
 		pthread_join(args->philo_thread[i], NULL);
-	while (args->is_dead == FALSE)
 	freeall(args);
 	return (0);
 }
