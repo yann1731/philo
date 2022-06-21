@@ -2,25 +2,19 @@
 
 void	initphilo(char *argv[], t_args *args)
 {
-	int				i;
-	struct timeval	time;
-	int				seconds;
-	int				usecs;
+	int	i;
 
 	i = -1;
-	gettimeofday(&time, NULL);
-	seconds = time.tv_sec;
-	usecs = time.tv_usec;
 	while (++i < args->n_philo)
 	{
 		args->philo[i].t_to_die = ft_atoi(argv[2]);
 		args->philo[i].t_to_eat = ft_atoi(argv[3]);
 		args->philo[i].t_to_sleep = ft_atoi(argv[4]);
 		if (argv[5] != NULL)
-			args->philo[i].n_times_eat = ft_atoi(argv[5]);
+			args->philo[i].n_times_to_eat = ft_atoi(argv[5]);
 		args->philo[i].philo_id = i + 1;
-		args->philo[i].start_time.tv_sec = seconds;
-		args->philo[i].start_time.tv_usec = usecs;
+		gettimeofday(&args->start_time, NULL);
+		args->philo[i].t_s_last_meal = 0;
 		args->philo->args = args;
 		init_mutex(&args->philo[i]);
 	}
