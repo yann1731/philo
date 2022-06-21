@@ -5,6 +5,8 @@
 #include <string.h>
 #include <unistd.h>
 #include <stdlib.h>
+#define FALSE 0
+#define TRUE 1
 
 // args: number_of_philosophers, time_to_die, time_to_eat, time_to_sleep, (all in milliseconds)
 typedef struct s_args t_args;
@@ -21,6 +23,7 @@ typedef struct s_philo
 	int				t_to_eat;
 	int				t_to_sleep;
 	int				n_times_eat;
+	int				t_s_last_meal;
 	struct timeval	start_time;
 	struct timeval	current_time;
 	t_args			*args;
@@ -32,6 +35,7 @@ typedef struct s_args
 	t_philo		*philo;
 	int			*forks;
 	int			n_philo;
+	int			is_dead;
 }	t_args;
 
 int		ft_atoi(const char *str);
