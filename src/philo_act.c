@@ -8,20 +8,21 @@
 
 void	eat(t_philo *philo)
 {
-	printf("%d %d has taken a fork\n", getms(philo), philo->philo_id);
-	printf("%d %d has taken a fork\n", getms(philo), philo->philo_id);
-	printf("%d %d is eating\n", getms(philo), philo->philo_id);
+	pthread_mutex_lock(&philo->args->take_forks);
+	takeforks(philo);
+	printf("%d %d is eating\n", getms(philo), philo->id);
+	pthread_mutex_unlock(&philo->args->take_forks);
 	usleep((philo->t_to_eat * 1000));
 }
 
 void	think(t_philo *philo)
 {
-	printf("%d %d is thinking\n", getms(philo), philo->philo_id);
+	printf("%d %d is thinking\n", getms(philo), philo->id);
 }
 
 void	f_sleep(t_philo *philo)
 {
-	printf("%d %d is sleeping\n", getms(philo), philo->philo_id);
+	printf("%d %d is sleeping\n", getms(philo), philo->id);
 	usleep((philo->t_to_sleep * 1000));
 }
 
