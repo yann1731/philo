@@ -17,11 +17,7 @@ typedef struct s_philo t_philo;
 
 typedef struct s_philo
 {
-	pthread_mutex_t	pick_r_fork;
-	pthread_mutex_t	pick_l_fork;
-	pthread_mutex_t check_death;
-	int				*forks;
-	int				philo_id;
+	int				id;
 	int				t_to_die;
 	int				t_to_eat;
 	int				t_to_sleep;
@@ -34,12 +30,14 @@ typedef struct s_philo
 
 typedef struct s_args
 {
-	pthread_t	*philo_thread;
-	t_philo		*philo;
+	pthread_t		*philo_thread;
+	pthread_mutex_t	take_forks;
+	pthread_mutex_t	check_death;
+	t_philo			*philo;
 	struct timeval	start_time;
-	int			*forks;
-	int			n_philo;
-	int			is_dead;
+	int				*forks;
+	int				n_philo;
+	int				is_dead;
 }	t_args;
 
 int		ft_atoi(const char *str);
@@ -54,5 +52,6 @@ int		getms(t_philo *philo);
 void	fuckoff(void);
 void	freeall(t_args *args);
 void	init_mutex(t_philo *philo);
+void	takeforks(t_philo *philo);
 
 #endif
