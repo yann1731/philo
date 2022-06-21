@@ -17,7 +17,6 @@ void	eat(t_philo *philo)
 void	think(t_philo *philo)
 {
 	printf("%d %d is thinking\n", getms(philo), philo->philo_id);
-	usleep(philo->t_to_eat );
 }
 
 void	f_sleep(t_philo *philo)
@@ -30,9 +29,8 @@ void	*philo_act(void *arg)
 {
 	t_philo *philo;
 	philo = (t_philo *) arg;
-
-	printf("Hello from philo %d\n", philo->philo_id);
-
-
+	while (philo->args->is_dead == FALSE)
+	{
+	}
 	return ((void *) philo);
 }
