@@ -1,8 +1,7 @@
 #include "../include/philosopher.h"
 
-void	init_mutex(t_philo *philo)
+void	init_mutex(t_args *args)
 {
-	pthread_mutex_init(&philo->pick_l_fork, NULL);
-	pthread_mutex_init(&philo->pick_r_fork, NULL);
-	pthread_mutex_init(&philo->check_death, NULL);
+	pthread_mutex_init(&args->pick_forks, NULL);
+	pthread_mutex_init(&args->check_death, NULL);
 }

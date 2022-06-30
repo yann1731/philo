@@ -6,18 +6,24 @@
 // ◦timestamp_in_ms X is thinking
 // ◦timestamp_in_ms X died
 
+void	releasefork(t_philo *philo)
+{
+		philo->args->forks[philo->id - 1] = 0;
+		philo->args->forks[philo->id] = 0;
+}
+
 void	eat(t_philo *philo)
 {
-	pthread_mutex_lock(&philo->args->take_forks);
 	takeforks(philo);
 	printf("%d %d is eating\n", getms(philo), philo->id);
-	pthread_mutex_unlock(&philo->args->take_forks);
+	releasefork(philo);
 	usleep((philo->t_to_eat * 1000));
 }
 
 void	think(t_philo *philo)
 {
 	printf("%d %d is thinking\n", getms(philo), philo->id);
+	getms(philo);
 }
 
 void	f_sleep(t_philo *philo)
@@ -30,8 +36,8 @@ void	*philo_act(void *arg)
 {
 	t_philo *philo;
 	philo = (t_philo *) arg;
-	while (philo->args->is_dead == FALSE)
-	{
-	}
+	eat(philo);
+	think(philo);
+	f_sleep(philo);
 	return ((void *) philo);
 }

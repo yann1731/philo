@@ -13,9 +13,9 @@ void	initphilo(char *argv[], t_args *args)
 		if (argv[5] != NULL)
 			args->philo[i].n_times_to_eat = ft_atoi(argv[5]);
 		args->philo[i].id = i + 1;
-		gettimeofday(&args->start_time, NULL);
 		args->philo[i].t_s_last_meal = 0;
-		args->philo->args = args;
-		init_mutex(&args->philo[i]);
+		args->philo[i].args = args;
+		pthread_mutex_init(&args->philo[i].pick_forks, NULL);
+		pthread_mutex_init(&args->philo[i].check_dead, NULL);
 	}
 }

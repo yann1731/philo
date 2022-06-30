@@ -25,16 +25,16 @@ typedef struct s_philo
 	int				n_meals_eaten;
 	int				t_s_last_meal;
 	struct timeval	current_time;
+	pthread_mutex_t	pick_forks;
+	pthread_mutex_t	check_dead;
 	t_args			*args;
 }	t_philo;
 
 typedef struct s_args
 {
 	pthread_t		*philo_thread;
-	pthread_mutex_t	take_forks;
-	pthread_mutex_t	check_death;
 	t_philo			*philo;
-	struct timeval	start_time;
+	struct timeval	*start_time;
 	int				*forks;
 	int				n_philo;
 	int				is_dead;
@@ -51,7 +51,7 @@ void    initphilo(char *argv[], t_args *args);
 int		getms(t_philo *philo);
 void	fuckoff(void);
 void	freeall(t_args *args);
-void	init_mutex(t_philo *philo);
+//void	init_mutex(t_args *args);
 void	takeforks(t_philo *philo);
 
 #endif
