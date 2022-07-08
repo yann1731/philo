@@ -18,14 +18,18 @@ int	main(int argc, char *argv[])
 	check(argc, argv);
 	initargs(argv, args);
 	create_philos(args);
-	// if (argc == 4)
-	// 	while (args->is_dead == FALSE)
-	// 	{
-	// 	}
-	// else
-	// 	while (args->is_dead == FALSE && args->philo[args->n_philo].n_meals_eaten != args->philo->n_times_to_eat)
-	// 	{
-	// 	}
+	if (argc == 4)
+		while (args->is_dead == FALSE)
+		{
+			if (i == args->n_philo)
+				i = -1;
+			checkdeath(args->philo[++i]);
+		}
+	else
+		while (args->is_dead == FALSE && args->philo[args->n_philo].n_meals_eaten != args->philo->n_times_to_eat)
+		{
+		}
+	i = -1;
 	while (++i < args->n_philo)
 		pthread_join(args->philo_thread[i], NULL);
 	freeall(args);

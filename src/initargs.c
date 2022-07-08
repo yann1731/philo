@@ -14,6 +14,5 @@ void	initargs(char *argv[], t_args *args)
 	args->is_dead = FALSE;
 	args->start_time = malloc(sizeof(struct timeval));
 	gettimeofday(args->start_time, NULL);
-	//init_mutex(args);
 	initphilo(argv, args);
 }
