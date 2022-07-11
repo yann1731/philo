@@ -1,5 +1,5 @@
 SRCS =		ft_atoi.c main.c check_validity.c check.c checkargsnum.c initargs.c create_philos.c \
-			philo_act.c initphilo.c getms.c freeall.c takeforks.c
+			philo_act.c initphilo.c getms.c freeall.c takeforks.c checkdeath.c
 
 OBJS =		${SRCS:.c=.o}
 
@@ -12,18 +12,24 @@ CFLAGS =	-Wall -Werror -Wextra
 RM =		rm -f
 
 .c.o:
-			${CC} ${CFLAGS} -g -c $< -o ${<:.c=.o}
+			@${CC} ${CFLAGS} -g -c $< -o ${<:.c=.o}
 
 ${NAME}:	${OBJS}
-			${CC} ${CFLAGS} ${OBJS} -o ${NAME}
+			@echo "Compiling philo"
+			@${CC} ${CFLAGS} ${OBJS} -o ${NAME}
+			@echo "Compiling philo done"
 
 all:		${NAME}
 
 clean:
-			${RM} ${OBJS}
+			@echo "Removing object files"
+			@${RM} ${OBJS}
+			@echo "Object files removed"
 
 fclean: clean
-			${RM} ${NAME}
+			@echo "Removing philo binary file"
+			@${RM} ${NAME}
+			@echo "Removing all files done"
 re: fclean all
 
 .PHONY: all clean fclean re
