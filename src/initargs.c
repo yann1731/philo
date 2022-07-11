@@ -13,6 +13,7 @@ void	initargs(char *argv[], t_args *args)
 		args->forks[i] = 0;
 	args->is_dead = FALSE;
 	args->start_time = malloc(sizeof(struct timeval));
+	args->check_meals = FALSE;
 	gettimeofday(args->start_time, NULL);
 	initphilo(argv, args);
 }
