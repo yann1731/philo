@@ -15,6 +15,7 @@ void	initphilo(char *argv[], t_args *args)
 		args->philo[i].id = i + 1;
 		args->philo[i].t_s_last_meal = 0;
 		args->philo[i].args = args;
+		args->philo[i].t_cur_meal = 0;
 		pthread_mutex_init(&args->philo[i].pick_forks, NULL);
 		pthread_mutex_init(&args->philo[i].check_dead, NULL);
 	}
