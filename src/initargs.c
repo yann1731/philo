@@ -12,8 +12,8 @@ void	initargs(char *argv[], t_args *args)
 	while (++i < args->n_philo)
 		args->forks[i] = 0;
 	args->is_dead = FALSE;
-	args->start_time = malloc(sizeof(struct timeval));
 	args->check_meals = FALSE;
-	gettimeofday(args->start_time, NULL);
+	pthread_mutex_init(&args->write_mut, NULL);
+	args->start_time = get_start_time();
 	initphilo(argv, args);
 }

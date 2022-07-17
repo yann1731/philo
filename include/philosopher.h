@@ -25,7 +25,6 @@ typedef struct s_philo
 	int				n_meals_eaten;
 	int				t_s_last_meal;
 	int				t_cur_meal;
-	struct timeval	current_time;
 	pthread_mutex_t	pick_forks;
 	pthread_mutex_t	check_dead;
 	t_args			*args;
@@ -35,26 +34,30 @@ typedef struct s_args
 {
 	pthread_t		*philo_thread;
 	t_philo			*philo;
-	struct timeval	*start_time;
+	long long		start_time;
 	int				*forks;
 	int				n_philo;
 	int				is_dead;
 	int				check_meals;
+	pthread_mutex_t	write_mut;
 }	t_args;
 
-int		ft_atoi(const char *str);
-void	create_philos(t_args *args);
-void	initargs(char *argv[], t_args *args);
-void	checkargsnum(int argc);
-void	check(int argc, char *argv[]);
-void	check_validity(char *argv[]);
-void	*philo_act(void *arg);
-void    initphilo(char *argv[], t_args *args);
-int		getms(t_philo *philo);
-void	fuckoff(void);
-void	freeall(t_args *args);
-//void	init_mutex(t_args *args);
-void	takeforks(t_philo *philo);
-void	checkdeath(t_philo *philo);
+int			ft_atoi(const char *str);
+void		create_philos(t_args *args);
+void		initargs(char *argv[], t_args *args);
+void		checkargsnum(int argc);
+void		check(int argc, char *argv[]);
+void		check_validity(char *argv[]);
+void		*philo_act(void *arg);
+void    	initphilo(char *argv[], t_args *args);
+long long	get_ts(t_philo *philo);
+void		fuckoff(void);
+void		freeall(t_args *args);
+//void		init_mutex(t_args *args);
+void		takeforks(t_philo *philo);
+void		checkdeath(t_philo *philo);
+void		destroy_mutex(t_args *args);
+long long	get_start_time(void);
+void		print(t_philo *philo, char *action);
 
 #endif
