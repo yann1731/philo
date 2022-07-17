@@ -51,7 +51,7 @@ void	*philo_act(void *arg)
 {
 	t_philo *philo;
 	philo = (t_philo *) arg;
-	while (philo->args->is_dead == FALSE && philo->n_meals_eaten != philo->n_times_to_eat)
+	while (philo->args->is_dead == FALSE)
 	{
 		printf("%d\n", philo->args->check_meals);
 		printf("%d\n", philo->n_times_to_eat);
