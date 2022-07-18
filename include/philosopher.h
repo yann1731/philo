@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   philosopher.h                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: yannickst-laurent <marvin@42.fr>           +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/07/18 15:19:39 by yannickst         #+#    #+#             */
+/*   Updated: 2022/07/18 15:19:42 by yannickst        ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 #ifndef PHILOSOPHER_H
 # define PHILOSOPHER_H
 
@@ -56,13 +67,15 @@ void    	initphilo(char *argv[], t_args *args);
 long long	get_ts(t_args *args);
 void		fuckoff(void);
 void		freeall(t_args *args);
-//void		init_mutex(t_args *args);
 void		takeforks(t_philo *philo);
-int			checkdeath(t_philo *philo);
+void		checkdeath(t_philo *philo);
 void		destroy_mutex(t_args *args);
 long long	get_start_time(void);
 void		print(t_philo *philo, char *action);
 void		end_philo(t_args *args);
 void		my_sleep(t_philo *philo, int time_to_wait);
+void		check_philo_status(t_args *args);
+void		single_philo(t_philo *philo);
+void		*single_philo_act(void	*arg);
 
 #endif
