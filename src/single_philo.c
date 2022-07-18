@@ -1,18 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check.c                                            :+:      :+:    :+:   */
+/*   single_philo.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yannickst-laurent <marvin@42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/18 15:14:16 by yannickst         #+#    #+#             */
-/*   Updated: 2022/07/18 15:14:21 by yannickst        ###   ########.fr       */
+/*   Created: 2022/07/18 15:18:30 by yannickst         #+#    #+#             */
+/*   Updated: 2022/07/18 15:18:33 by yannickst        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../include/philosopher.h"
 
-void	check(int argc, char *argv[])
+void	single_philo(t_philo *philo)
 {
-	checkargsnum(argc);
-	check_validity(argv);
+	pthread_create(&philo->args->philo_thread[0], NULL, &single_philo_act, (void *) philo);
 }

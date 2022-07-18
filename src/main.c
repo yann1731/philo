@@ -1,12 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: yannickst-laurent <marvin@42.fr>           +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/07/18 15:17:31 by yannickst         #+#    #+#             */
+/*   Updated: 2022/07/18 15:17:37 by yannickst        ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 #include "../include/philosopher.h"
-
-/*  Allowed functions	*/
-
-// memset, printf, malloc, free, write,
-// usleep, gettimeofday, pthread_create,
-// pthread_detach, pthread_join, pthread_mutex_init,
-// pthread_mutex_destroy, pthread_mutex_lock,
-// pthread_mutex_unlock
 
 int	main(int argc, char *argv[])
 {
@@ -15,7 +18,11 @@ int	main(int argc, char *argv[])
 	args = malloc(sizeof(t_args));
 	check(argc, argv);
 	initargs(argc, argv, args);
-	create_philos(args);
+	if (args->n_philo == 1)
+		single_philo(args->philo);
+	else
+		create_philos(args);
+	check_philo_status(args);
 	end_philo(args);
 	return (0);
 }
