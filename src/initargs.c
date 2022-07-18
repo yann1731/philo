@@ -1,6 +1,6 @@
 #include "../include/philosopher.h"
 
-void	initargs(char *argv[], t_args *args)
+void	initargs(int argc, char *argv[], t_args *args)
 {
 	int	i;
 
@@ -8,12 +8,18 @@ void	initargs(char *argv[], t_args *args)
 	args->n_philo = ft_atoi(argv[1]);
 	args->philo = malloc(args->n_philo * sizeof(t_philo));
 	args->philo_thread = malloc(args->n_philo * sizeof(pthread_t));
-	args->forks = malloc(args->n_philo * sizeof(int));
-	while (++i < args->n_philo)
-		args->forks[i] = 0;
+	args->forks = malloc(args->n_philo * sizeof(pthread_mutex_t));
 	args->is_dead = FALSE;
-	args->check_meals = FALSE;
+	if (argc == 6)
+		args->check_meals = TRUE;
+	else
+		args->check_meals = FALSE;
 	pthread_mutex_init(&args->write_mut, NULL);
+	pthread_mutex_init(&args->check_dead, NULL);
+	while (++i < args->n_philo)
+		pthread_mutex_init(&args->forks[i], NULL);
+	pthread_mutex_init(&args->eating, NULL);
 	args->start_time = get_start_time();
+	args->argc = argc;
 	initphilo(argv, args);
 }

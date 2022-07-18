@@ -1,12 +1,15 @@
 #include "../include/philosopher.h"
 
-void	checkdeath(t_philo *philo)
+int	checkdeath(t_philo *philo)
 {
-	pthread_mutex_lock(&philo->check_dead);
-	if ((get_ts(philo) - philo->t_s_last_meal) > philo->t_to_die)
+	pthread_mutex_lock(&philo->args->check_dead);
+	if ((get_ts(philo->args) - philo->t_last_meal) >= philo->t_to_die)
 	{
 		philo->args->is_dead = TRUE;
-		print(philo, "has died");
+		printf("%lld %d has died\n", get_ts(philo->args), philo->id);
+		pthread_mutex_unlock(&philo->args->check_dead);
+		return (1);
 	}
-	pthread_mutex_unlock(&philo->check_dead);
+	pthread_mutex_unlock(&philo->args->check_dead);
+	return (0);
 }

@@ -11,16 +11,11 @@
 int	main(int argc, char *argv[])
 {
 	t_args	*args;
-	int		i;
 
-	i = -1;
 	args = malloc(sizeof(t_args));
 	check(argc, argv);
-	initargs(argv, args);
+	initargs(argc, argv, args);
 	create_philos(args);
-	while (++i < args->n_philo)
-		pthread_join(args->philo_thread[i], NULL);
-	destroy_mutex(args);
-	freeall(args);
+	end_philo(args);
 	return (0);
 }

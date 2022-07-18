@@ -6,8 +6,7 @@ void	destroy_mutex(t_args *args)
 
 	i = -1;
 	while (++i < args->n_philo)
-	{
-		pthread_mutex_destroy(&args->philo[i].pick_forks);
-		pthread_mutex_destroy(&args->philo[i].check_dead);
-	}
+		pthread_mutex_destroy(&args->forks[i]);
+	pthread_mutex_destroy(&args->check_dead);
+	pthread_mutex_destroy(&args->write_mut);
 }
