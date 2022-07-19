@@ -58,7 +58,8 @@ void	*philo_act(void *arg)
 	{
 		if (philo->args->is_dead == TRUE)
 			break ;
-		if (philo->args->check_meals == TRUE && philo->n_meals_eaten == philo->n_times_to_eat)
+		if (philo->args->check_meals == TRUE
+			&& philo->n_meals_eaten == philo->n_times_to_eat)
 		{
 			philo->full = TRUE;
 			break ;

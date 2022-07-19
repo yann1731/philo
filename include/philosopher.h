@@ -57,28 +57,42 @@ typedef struct s_args
 	pthread_mutex_t	check_dead;
 }	t_args;
 
-int			ft_atoi(const char *str);
-void		create_philos(t_args *args);
-void		initargs(int argc, char *argv[], t_args *args);
-int			checkargsnum(int argc);
-void		check(int argc, char *argv[], t_args *args);
-int			check_validity(char *argv[]);
-void		*philo_act(void *arg);
-void		initphilo(char *argv[], t_args *args);
-long long	get_ts(t_args *args);
-void		fuckoff(void);
-void		freeall(t_args *args);
-void		takeforks(t_philo *philo);
-void		checkdeath(t_philo *philo);
-void		destroy_mutex(t_args *args);
-long long	get_start_time(void);
-void		print(t_philo *philo, char *action);
-void		end_philo(t_args *args);
-void		my_sleep(t_philo *philo, int time_to_wait);
-void		check_philo_status(t_args *args);
-void		single_philo(t_philo *philo);
-void		*single_philo_act(void	*arg);
+//check_utils.c
 int			check_full(t_args *args);
+void		check_philo_status(t_args *args);
+void		checkdeath(t_philo *philo);
+void		check(int argc, char *argv[], t_args *args);
+
+//end_utils.c
+void		end_philo(t_args *args);
+void		freeall(t_args *args);
 void		freeargs(t_args *args);
+void		destroy_mutex(t_args *args);
+
+//error_utils.c
+int			check_validity(char *argv[]);
+int			checkargsnum(int argc);
+
+//init_utils.c
+void		initargs(int argc, char *argv[], t_args *args);
+void		initphilo(char *argv[], t_args *args);
+
+//misc_utils.c
+int			ft_atoi(const char *str);
+long long	get_start_time(void);
+long long	get_ts(t_args *args);
+void		my_sleep(t_philo *philo, int time_to_wait);
+void		print(t_philo *philo, char *action);
+
+//philo_act.c
+void		eat(t_philo *philo);
+void		think(t_philo *philo);
+void		f_sleep(t_philo *philo);
+void		*philo_act(void *arg);
+
+//thread_utils.c
+void		create_philos(t_args *args);
+void		*single_philo_act(void	*arg);
+void		single_philo(t_philo *philo);
 
 #endif
