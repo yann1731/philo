@@ -21,7 +21,7 @@ void	my_sleep(t_philo *philo, int time_to_wait)
 	{
 		diff = get_ts(philo->args) - current_time;
 		if (diff >= time_to_wait)
-			break;
+			break ;
 		usleep(50);
 	}
 }

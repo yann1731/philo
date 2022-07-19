@@ -18,7 +18,10 @@
 // ◦timestamp_in_ms X died
 void	eat(t_philo *philo)
 {
-	if (philo->args->is_dead == FALSE)
+	if (philo->args->is_dead == FALSE
+		|| (philo->args->check_meals == TRUE
+			&& philo->n_meals_eaten == philo->n_meals_eaten
+			&& philo->args->is_dead == FALSE))
 	{
 		pthread_mutex_lock(&philo->args->forks[philo->left_fork]);
 		print(philo, "has taken a fork");
@@ -54,7 +57,8 @@ void	f_sleep(t_philo *philo)
 
 void	*philo_act(void *arg)
 {
-	t_philo *philo;
+	t_philo	*philo;
+
 	philo = (t_philo *) arg;
 	if (philo->id % 2 == 0)
 		usleep(150);

@@ -13,7 +13,7 @@
 
 long long	get_start_time(void)
 {
-	struct timeval starttime;
+	struct timeval	starttime;
 
 	gettimeofday(&starttime, NULL);
 	return ((starttime.tv_sec * 1000) + (starttime.tv_usec / 1000));

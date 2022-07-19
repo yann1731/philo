@@ -13,7 +13,8 @@
 
 void	*single_philo_act(void	*arg)
 {
-	t_philo *philo;
+	t_philo	*philo;
+
 	philo = (t_philo *) arg;
 	pthread_mutex_lock(&philo->args->forks[philo->left_fork]);
 	print(philo, "has taken a fork");

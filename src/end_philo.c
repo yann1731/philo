@@ -13,7 +13,7 @@
 
 void	end_philo(t_args *args)
 {
-	int i;
+	int	i;
 
 	i = -1;
 	while (args->is_dead == FALSE)

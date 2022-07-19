@@ -13,5 +13,6 @@
 
 void	single_philo(t_philo *philo)
 {
-	pthread_create(&philo->args->philo_thread[0], NULL, &single_philo_act, (void *) philo);
+	pthread_create(&philo->args->philo_thread[0], NULL,
+		&single_philo_act, (void *) philo);
 }
