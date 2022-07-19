@@ -18,6 +18,8 @@ void	end_philo(t_args *args)
 	i = -1;
 	while (args->is_dead == FALSE)
 	{
+		if (check_full(args) == TRUE)
+			break ;
 	}
 	while (++i < args->n_philo)
 		pthread_join(args->philo_thread[i], NULL);

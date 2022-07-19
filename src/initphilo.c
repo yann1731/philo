@@ -29,5 +29,6 @@ void	initphilo(char *argv[], t_args *args)
 		args->philo[i].t_cur_meal = 0;
 		args->philo[i].left_fork = i;
 		args->philo[i].right_fork = (i + 1) % args->n_philo;
+		args->philo[i].full = FALSE;
 	}
 }

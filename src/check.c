@@ -11,8 +11,10 @@
 /* ************************************************************************** */
 #include "../include/philosopher.h"
 
-void	check(int argc, char *argv[])
+void	check(int argc, char *argv[], t_args *args)
 {
-	checkargsnum(argc);
-	check_validity(argv);
+	if (checkargsnum(argc) == 1)
+		args->error = TRUE;
+	if (check_validity(argv) == 1)
+		args->error = TRUE;
 }

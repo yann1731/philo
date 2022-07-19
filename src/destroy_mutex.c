@@ -20,4 +20,5 @@ void	destroy_mutex(t_args *args)
 		pthread_mutex_destroy(&args->forks[i]);
 	pthread_mutex_destroy(&args->check_dead);
 	pthread_mutex_destroy(&args->write_mut);
+	pthread_mutex_destroy(&args->eating);
 }

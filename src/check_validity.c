@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 #include "../include/philosopher.h"
 
-void	check_validity(char *argv[])
+int	check_validity(char *argv[])
 {
 	int	i;
 	int	j;
@@ -25,9 +25,10 @@ void	check_validity(char *argv[])
 			if (!(argv[i][j] >= '0' && argv[i][j] <= '9'))
 			{
 				write(2, "Must enter only positive numbers as arguments!", 46);
-				exit(1);
+				return (1);
 			}
 		}
 		j = -1;
 	}
+	return (0);
 }

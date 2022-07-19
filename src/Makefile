@@ -1,7 +1,7 @@
 SRCS =		ft_atoi.c main.c check_validity.c check.c checkargsnum.c initargs.c create_philos.c \
 			philo_act.c initphilo.c get_ts.c freeall.c checkdeath.c destroy_mutex.c \
 			get_start_time.c print.c end_philo.c my_sleep.c check_philo_status.c single_philo.c \
-			single_philo_act.c
+			single_philo_act.c check_full.c freeargs.c
 
 OBJS =		${SRCS:.c=.o}
 

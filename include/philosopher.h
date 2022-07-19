@@ -22,9 +22,8 @@
 # define FALSE 0
 # define TRUE 1
 
-// args: number_of_philosophers, time_to_die, time_to_eat, time_to_sleep, (all in milliseconds)
-typedef struct s_args t_args;
-typedef struct s_philo t_philo;
+typedef struct s_args	t_args;
+typedef struct s_philo	t_philo;
 
 typedef struct s_philo
 {
@@ -38,6 +37,7 @@ typedef struct s_philo
 	int			t_cur_meal;
 	int			left_fork;
 	int			right_fork;
+	int			full;
 	t_args		*args;
 }	t_philo;
 
@@ -50,20 +50,21 @@ typedef struct s_args
 	int				is_dead;
 	int				check_meals;
 	int				argc;
+	int				error;
 	pthread_mutex_t	write_mut;
 	pthread_mutex_t	*forks;
-	pthread_mutex_t eating;
-	pthread_mutex_t check_dead;
+	pthread_mutex_t	eating;
+	pthread_mutex_t	check_dead;
 }	t_args;
 
 int			ft_atoi(const char *str);
 void		create_philos(t_args *args);
 void		initargs(int argc, char *argv[], t_args *args);
-void		checkargsnum(int argc);
-void		check(int argc, char *argv[]);
-void		check_validity(char *argv[]);
+int			checkargsnum(int argc);
+void		check(int argc, char *argv[], t_args *args);
+int			check_validity(char *argv[]);
 void		*philo_act(void *arg);
-void    	initphilo(char *argv[], t_args *args);
+void		initphilo(char *argv[], t_args *args);
 long long	get_ts(t_args *args);
 void		fuckoff(void);
 void		freeall(t_args *args);
@@ -77,5 +78,7 @@ void		my_sleep(t_philo *philo, int time_to_wait);
 void		check_philo_status(t_args *args);
 void		single_philo(t_philo *philo);
 void		*single_philo_act(void	*arg);
+int			check_full(t_args *args);
+void		freeargs(t_args *args);
 
 #endif

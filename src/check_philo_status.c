@@ -19,6 +19,11 @@ void	check_philo_status(t_args *args)
 	while (args->is_dead == FALSE)
 	{
 		checkdeath(&args->philo[i]);
+		if (check_full(args) == TRUE)
+		{
+			printf("All philosophers are full\n");
+			break ;
+		}
 		if (i == args->n_philo - 1)
 			i = -1;
 		i++;

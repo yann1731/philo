@@ -11,17 +11,9 @@
 /* ************************************************************************** */
 #include "../include/philosopher.h"
 
-// ◦timestamp_in_ms X has taken a fork
-// ◦timestamp_in_ms X is eating
-// ◦timestamp_in_ms X is sleeping
-// ◦timestamp_in_ms X is thinking
-// ◦timestamp_in_ms X died
 void	eat(t_philo *philo)
 {
-	if (philo->args->is_dead == FALSE
-		|| (philo->args->check_meals == TRUE
-			&& philo->n_meals_eaten == philo->n_meals_eaten
-			&& philo->args->is_dead == FALSE))
+	if (philo->args->is_dead == FALSE)
 	{
 		pthread_mutex_lock(&philo->args->forks[philo->left_fork]);
 		print(philo, "has taken a fork");
@@ -66,6 +58,11 @@ void	*philo_act(void *arg)
 	{
 		if (philo->args->is_dead == TRUE)
 			break ;
+		if (philo->args->check_meals == TRUE && philo->n_meals_eaten == philo->n_times_to_eat)
+		{
+			philo->full = TRUE;
+			break ;
+		}
 		eat(philo);
 		think(philo);
 		f_sleep(philo);
