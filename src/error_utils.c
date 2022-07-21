@@ -24,7 +24,7 @@ int	check_validity(char *argv[])
 		{
 			if (!(argv[i][j] >= '0' && argv[i][j] <= '9'))
 			{
-				write(2, "Must enter only positive numbers as arguments!", 46);
+				write(2, "Must enter only positive numbers as arguments\n", 46);
 				return (1);
 			}
 		}
@@ -37,7 +37,7 @@ int	checkargsnum(int argc)
 {
 	if (argc < 5 || argc > 6)
 	{
-		write(STDERR_FILENO, "Not the right number of arguments", 33);
+		write(STDERR_FILENO, "Not the right number of arguments\n", 34);
 		return (1);
 	}
 	return (0);
