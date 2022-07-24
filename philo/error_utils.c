@@ -30,6 +30,11 @@ int	check_validity(char *argv[])
 		}
 		j = -1;
 	}
+	if (ft_atoi(argv[1]) == 0)
+	{
+		dprintf(STDERR_FILENO, "Must enter more than one philosopher\n");
+		return (1);
+	}
 	return (0);
 }
 

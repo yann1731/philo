@@ -11,10 +11,10 @@
 /* ************************************************************************** */
 #include "philosopher.h"
 
-int	ft_atoi(const char *str)
+long long	ft_atoi(const char *str)
 {
-	int	sign;
-	int	num;
+	int			sign;
+	long long	num;
 
 	sign = 1;
 	num = 0;
