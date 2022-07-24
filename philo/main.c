@@ -1,43 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error_utils.c                                      :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yannickst-laurent <marvin@42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/19 10:09:49 by yannickst         #+#    #+#             */
-/*   Updated: 2022/07/19 10:09:52 by yannickst        ###   ########.fr       */
+/*   Created: 2022/07/18 15:17:31 by yannickst         #+#    #+#             */
+/*   Updated: 2022/07/18 15:17:37 by yannickst        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "../include/philosopher.h"
+#include "philosopher.h"
 
-int	check_validity(char *argv[])
+int	main(int argc, char *argv[])
 {
-	int	i;
-	int	j;
+	t_args	*args;
 
-	i = 0;
-	j = -1;
-	while (argv[++i])
+	args = malloc(sizeof(t_args));
+	check(argc, argv, args);
+	if (args->error == FALSE)
 	{
-		while (argv[i][++j])
-		{
-			if (!(argv[i][j] >= '0' && argv[i][j] <= '9'))
-			{
-				write(2, "Must enter only positive numbers as arguments\n", 46);
-				return (1);
-			}
-		}
-		j = -1;
+		initargs(argc, argv, args);
+		if (args->n_philo == 1)
+			single_philo(args->philo);
+		else
+			create_philos(args);
+		check_philo_status(args);
+		end_philo(args);
 	}
-	return (0);
-}
-
-int	checkargsnum(int argc)
-{
-	if (argc < 5 || argc > 6)
+	else
 	{
-		write(STDERR_FILENO, "Not the right number of arguments\n", 34);
+		freeargs(args);
 		return (1);
 	}
 	return (0);

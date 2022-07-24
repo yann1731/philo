@@ -9,7 +9,7 @@
 /*   Updated: 2022/07/19 10:09:29 by yannickst        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "../include/philosopher.h"
+#include "philosopher.h"
 
 int	check_full(t_args *args)
 {

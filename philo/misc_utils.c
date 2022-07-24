@@ -9,7 +9,7 @@
 /*   Updated: 2022/07/19 10:10:14 by yannickst        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "../include/philosopher.h"
+#include "philosopher.h"
 
 int	ft_atoi(const char *str)
 {

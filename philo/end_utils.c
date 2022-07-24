@@ -9,7 +9,7 @@
 /*   Updated: 2022/07/19 10:09:40 by yannickst        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "../include/philosopher.h"
+#include "philosopher.h"
 
 void	end_philo(t_args *args)
 {

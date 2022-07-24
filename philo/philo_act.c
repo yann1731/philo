@@ -9,7 +9,7 @@
 /*   Updated: 2022/07/18 15:18:06 by yannickst        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "../include/philosopher.h"
+#include "philosopher.h"
 
 void	eat(t_philo *philo)
 {
