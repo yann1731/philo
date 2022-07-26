@@ -15,22 +15,25 @@ int	main(int argc, char *argv[])
 {
 	t_args	*args;
 
-	args = malloc(sizeof(t_args));
-	check(argc, argv, args);
-	if (args->error == FALSE)
+	if (argc == 5 || argc == 6)
 	{
-		initargs(argc, argv, args);
-		if (args->n_philo == 1)
-			single_philo(args->philo);
+		args = malloc(sizeof(t_args));
+		check(argv, args);
+		if (args->error == FALSE)
+		{
+			initargs(argc, argv, args);
+			if (args->n_philo == 1)
+				single_philo(args->philo);
+			else
+				create_philos(args);
+			check_philo_status(args);
+			end_philo(args);
+		}
 		else
-			create_philos(args);
-		check_philo_status(args);
-		end_philo(args);
-	}
-	else
-	{
-		freeargs(args);
-		return (1);
+		{
+			freeargs(args);
+			return (1);
+		}
 	}
 	return (0);
 }

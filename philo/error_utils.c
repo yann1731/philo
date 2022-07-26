@@ -37,13 +37,3 @@ int	check_validity(char *argv[])
 	}
 	return (0);
 }
-
-int	checkargsnum(int argc)
-{
-	if (argc < 5 || argc > 6)
-	{
-		write(STDERR_FILENO, "Not the right number of arguments\n", 34);
-		return (1);
-	}
-	return (0);
-}

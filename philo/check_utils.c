@@ -55,10 +55,8 @@ void	checkdeath(t_philo *philo)
 	pthread_mutex_unlock(&philo->args->check_dead);
 }
 
-void	check(int argc, char *argv[], t_args *args)
+void	check(char *argv[], t_args *args)
 {
-	if (checkargsnum(argc) == 1)
-		args->error = TRUE;
 	if (check_validity(argv) == 1)
 		args->error = TRUE;
 	if (checkintlimit(argv) == 1)

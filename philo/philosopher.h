@@ -62,7 +62,7 @@ typedef struct s_args
 int			check_full(t_args *args);
 void		check_philo_status(t_args *args);
 void		checkdeath(t_philo *philo);
-void		check(int argc, char *argv[], t_args *args);
+void		check(char *argv[], t_args *args);
 int			checkintlimit(char *argv[]);
 
 //end_utils.c
@@ -73,7 +73,6 @@ void		destroy_mutex(t_args *args);
 
 //error_utils.c
 int			check_validity(char *argv[]);
-int			checkargsnum(int argc);
 
 //init_utils.c
 void		initargs(int argc, char *argv[], t_args *args);
