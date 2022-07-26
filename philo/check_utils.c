@@ -74,10 +74,13 @@ int	checkintlimit(char *argv[])
 		return (1);
 	}
 	if (argv[5])
+	{
 		if (ft_atol(argv[5]) > INT_MAX)
 		{
-			dprintf(STDERR_FILENO, "Argument needs to be lower than %d\n", INT_MAX);
+			dprintf(STDERR_FILENO,
+				"Argument needs to be lower than %d\n", INT_MAX);
 			return (1);
 		}
+	}
 	return (0);
 }
