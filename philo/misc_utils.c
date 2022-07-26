@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 #include "philosopher.h"
 
-long long	ft_atoi(const char *str)
+long long	ft_atol(const char *str)
 {
 	int			sign;
 	long long	num;
