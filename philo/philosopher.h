@@ -80,7 +80,7 @@ void		initargs(int argc, char *argv[], t_args *args);
 void		initphilo(char *argv[], t_args *args);
 
 //misc_utils.c
-long long	ft_atoi(const char *str);
+long long	ft_atol(const char *str);
 long long	get_start_time(void);
 long long	get_ts(t_args *args);
 void		my_sleep(t_philo *philo, int time_to_wait);

@@ -16,7 +16,7 @@ void	initargs(int argc, char *argv[], t_args *args)
 	int	i;
 
 	i = -1;
-	args->n_philo = ft_atoi(argv[1]);
+	args->n_philo = ft_atol(argv[1]);
 	args->philo = malloc(args->n_philo * sizeof(t_philo));
 	args->philo_thread = malloc(args->n_philo * sizeof(pthread_t));
 	args->forks = malloc(args->n_philo * sizeof(pthread_mutex_t));
@@ -42,11 +42,11 @@ void	initphilo(char *argv[], t_args *args)
 	i = -1;
 	while (++i < args->n_philo)
 	{
-		args->philo[i].t_to_die = ft_atoi(argv[2]);
-		args->philo[i].t_to_eat = ft_atoi(argv[3]);
-		args->philo[i].t_to_sleep = ft_atoi(argv[4]);
+		args->philo[i].t_to_die = ft_atol(argv[2]);
+		args->philo[i].t_to_eat = ft_atol(argv[3]);
+		args->philo[i].t_to_sleep = ft_atol(argv[4]);
 		if (argv[5] != NULL)
-			args->philo[i].n_times_to_eat = ft_atoi(argv[5]);
+			args->philo[i].n_times_to_eat = ft_atol(argv[5]);
 		args->philo[i].id = i + 1;
 		args->philo[i].t_last_meal = 0;
 		args->philo[i].args = args;
