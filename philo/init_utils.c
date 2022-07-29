@@ -21,7 +21,7 @@ void	initargs(int argc, char *argv[], t_args *args)
 	args->philo_thread = malloc(args->n_philo * sizeof(pthread_t));
 	args->forks = malloc(args->n_philo * sizeof(pthread_mutex_t));
 	args->is_dead = FALSE;
-	if (argc == 6)
+	if (argc == 6 && ft_atol(argv[5]) != 0)
 		args->check_meals = TRUE;
 	else
 		args->check_meals = FALSE;
