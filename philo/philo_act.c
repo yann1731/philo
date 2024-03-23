@@ -52,8 +52,10 @@ void	*philo_act(void *arg)
 	t_philo	*philo;
 
 	philo = (t_philo *) arg;
-	if (philo->id % 2 == 0)
-		usleep(150);
+	if (philo->id % 2 == 0) {
+		think(philo);
+		f_sleep(philo);
+	}
 	while (philo->args->is_dead == FALSE)
 	{
 		if (philo->args->is_dead == TRUE)
