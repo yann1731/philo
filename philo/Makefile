@@ -4,9 +4,11 @@ OBJS =		${SRCS:.c=.o}
 
 NAME =		philo
 
-CC =		gcc
+CC =		clang
 
 CFLAGS =	-Wall -Werror -Wextra
+
+CFLAGSSAN = -Wall -Werror -Wextra -fsanitize=thread -O1
 
 RM =		rm -f
 
@@ -19,6 +21,9 @@ ${NAME}:	${OBJS}
 			@echo "Compiling philo done"
 
 all:		${NAME}
+
+san:		${OBJS}
+			${CC} ${CFLAGSSAN} ${OBJS} -o ${NAME}
 
 clean:
 			@echo "Removing object files"
